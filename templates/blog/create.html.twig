@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+	<h1>
+		Creation d'un article !</h1>
+	{{form_start(form)}}
+	{{ form_row(form.title,{'attr':{'placeholder':"Titre de l article"}})}}
+    {{ form_row(form.category) }}
+	{{ form_row(form.content,{'attr':{'placeholder':"Contenu de l article"}})}}
+	{{ form_row(form.image,{'attr':{'placeholder':"L URL de limage "}})}}
+	<button type="submit" class="btn btn-success">
+		{% if editMode %}
+
+			Confirmer la Modification
+		{% else %}
+			Ajouter nouveau article
+		{% endif %}
+	</button>
+
+	{# <div class="form-group">
+											<label for="">Titre de larticle</label>
+											{{ form_widget(form.title)}}
+										</div>
+										<div class="form-group">
+											<label for="">Contenu de l'article
+											</label>
+											{{ form_widget(form.content)}}
+										</div>
+										<div class="form-group">
+											<label for="">Image
+											</label>
+											{{ form_widget(form.image)}}
+										</div> #}
+	{{form_end(form)}}
+
+
+	{# <form action="" method="post">
+																									<label for="title">Titre de l'article:</label><br>
+																									<input type="text" name="title" placeholder="Titre de larticle :"><br>
+																									<label for="content">Le contenu de l'article:</label><br>
+																									<textarea name="content" placeholder="Le contenu de l'article"></textarea><br>
+																									<label for="image">L'image de l'article:</label><br>
+																									<input name="image" placeholder="L'image de l'article"><br>
+																									<button type="submit">
+																										Enregistrer</button>
+																								</form> #}
+{% endblock %}
